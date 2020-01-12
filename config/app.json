@@ -1,0 +1,38 @@
+{
+	"app": {
+		"port": 8080,
+		"handle-class" : "com.its.http.server.handle.HandleHttpRequest",
+		"http-timeout" : 50,
+		"timeout-check-bussiness" : 10,
+		"forward-protocol" : "REST",
+		"max-wait-request-soap" : 100000
+	},
+	"forward": [
+		{
+			"context-path-from": "/",
+			"context-path-to": "/"
+		},
+		{
+			"context-path-from": "/hello",
+			"context-path-to": "/hello-app"
+		},
+		{
+			"context-path-from": "/public-message",
+			"context-path-to": "/message"
+		},
+		{
+			"context-path-from": "/ok",
+			"context-path-to": "/ok-app"
+		}
+	],
+	"bussiness-node": {
+		"app-1": {
+			"host": "www.java2s.com",
+			"port": 80
+		},
+		"app-2": {
+			"host": "www.java2s.com",
+			"port": 80
+		}
+	}
+}
